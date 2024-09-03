@@ -11,8 +11,7 @@ import {
   Paper,
 } from '@mui/material';
 import { Visibility, VisibilityOff, Email, Lock } from '@mui/icons-material';
-import { Link } from 'react-router-dom'; // Import Link from React Router
-
+import { Link } from 'react-router-dom';
 // Array of images for the slideshow
 const images = [
   'https://static.wixstatic.com/media/79582d_931d70c7f1584745924646dba9c2a491~mv2.jpg/v1/fill/w_1115,h_743,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/79582d_931d70c7f1584745924646dba9c2a491~mv2.jpg',
@@ -44,20 +43,20 @@ const SignIn: React.FC = () => {
     setCurrentSlide((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
-  // Automatically move to the next slide every 2 seconds
+  
   useEffect(() => {
     const interval = setInterval(nextSlide, 2000);
-    return () => clearInterval(interval); // Cleanup the interval on component unmount
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <Container maxWidth="lg"> {/* Increased container size */}
+    <Container maxWidth="lg">
       <Paper elevation={3} style={{ padding: '2rem', marginTop: '2rem' }}>
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Box flex="1" marginRight="1rem">
             <Box
               position="relative"
-              height="400px" // Increased height for better image display
+              height="400px" 
               overflow="hidden"
               borderRadius="8px"
             >
@@ -134,7 +133,7 @@ const SignIn: React.FC = () => {
                 </Button>
               </Box>
             </form>
-            {/* Add navigation links below the Sign In button */}
+            
             <Box mt={2} display="flex" justifyContent="space-between">
               <Link to="/forgot-password" style={{ textDecoration: 'none' }}>
                 <Typography variant="body2" color="primary">

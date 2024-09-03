@@ -1,15 +1,13 @@
 // src/pages/Dashboard.tsx
 import React from 'react';
-import { useAuth } from '../contexts/AuthContext'; // Adjust the import based on your AuthContext location
-
+import { useAuth } from '../contexts/AuthContext'; 
 const Dashboard: React.FC = () => {
-  const { currentUser, logout } = useAuth(); // Assumes AuthContext provides these
-
+  const { currentUser, logout } = useAuth(); 
   const handleLogout = async () => {
     try {
       await logout();
-      // You might want to redirect the user to the sign-in page after logout
-      // For example, using `useNavigate` from `react-router-dom`
+      // After logout delete the token from local storage and redirect to the sign-in page
+    
     } catch (error) {
       console.error("Logout failed", error);
     }

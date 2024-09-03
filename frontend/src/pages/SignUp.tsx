@@ -71,7 +71,7 @@ const SignUp: React.FC = () => {
             margin="normal"
             required
             InputLabelProps={{
-              shrink: true, // Ensures the label stays above the input
+              shrink: true,
             }}
             InputProps={{
               startAdornment: (

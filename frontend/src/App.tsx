@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import SignIn from './pages/SignIn';
-import Dashboard from './pages/dashboard'; // Make sure you have a Dashboard page
+import Dashboard from './pages/dashboard'; 
 import ForgotPassword from './pages/ForgotPass';
 import SignUp from './pages/SignUp';
 
