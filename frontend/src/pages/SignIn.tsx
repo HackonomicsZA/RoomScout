@@ -11,30 +11,40 @@ import {
   Paper,
 } from '@mui/material';
 import { Visibility, VisibilityOff, Email, Lock } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
-// Array of images for the slideshow
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useAuth } from '../contexts/AuthContext';
+
 const images = [
   'https://static.wixstatic.com/media/79582d_931d70c7f1584745924646dba9c2a491~mv2.jpg/v1/fill/w_1115,h_743,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/79582d_931d70c7f1584745924646dba9c2a491~mv2.jpg',
   'https://static.wixstatic.com/media/79582d_eb981973b1054a6e90f92b6271a9da67~mv2.jpg/v1/fill/w_1115,h_743,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/79582d_eb981973b1054a6e90f92b6271a9da67~mv2.jpg',
   'https://56jorissen.co.za/images/building-tall.jpg',
   'https://campusafrica.co.za/wp-content/uploads/2021/10/49JorissenTheTowersexterior.jpg',
-  // Add more image URLs or paths to your assets here
 ];
 
 const SignIn: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  const { login } = useAuth();
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Handle form submission logic here
+    try {
+      await login(email, password);
+      navigate('/dashboard'); // Navigate to the dashboard on successful login
+    } catch (error) {
+      console.error('Sign-in failed:', error);
+      // Handle error accordingly (e.g., show an error message)
+    }
   };
 
-  // Function to navigate through slides
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % images.length);
   };
@@ -43,7 +53,6 @@ const SignIn: React.FC = () => {
     setCurrentSlide((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
-  
   useEffect(() => {
     const interval = setInterval(nextSlide, 2000);
     return () => clearInterval(interval);
@@ -91,6 +100,8 @@ const SignIn: React.FC = () => {
                 variant="outlined"
                 margin="normal"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -106,6 +117,8 @@ const SignIn: React.FC = () => {
                 variant="outlined"
                 margin="normal"
                 required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">

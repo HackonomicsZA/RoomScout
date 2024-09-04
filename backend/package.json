@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start": "ts-node src/signin.ts",
     "build": "tsc",
-    "start:prod": "node dist/index.js"
+    "start:prod": "node dist/signin.js"
   },
   "keywords": [],
   "author": "",
