@@ -18,7 +18,7 @@ const Dashboard: React.FC = () => {
       <h1>Dashboard</h1>
       {currentUser ? (
         <>
-          <p>Welcome, {currentUser.email}</p>
+          <p>Welcome, {currentUser.first_name}  {currentUser.last_name}</p>
           <button onClick={handleLogout} style={{ marginTop: '20px' }}>Logout</button>
         </>
       ) : (
