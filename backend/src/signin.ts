@@ -1,8 +1,10 @@
-import express, { Request, Response } from 'express';
+import express, { Router,Request, Response } from 'express';
 import { config } from 'dotenv';
 import { neon } from '@neondatabase/serverless';
 import cors from 'cors';
+import exp from 'constants';
 
+const router = Router();
 // Initialize dotenv
 config();
 
@@ -82,3 +84,4 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+export default router;
