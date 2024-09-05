@@ -1,6 +1,7 @@
 // src/pages/Dashboard.tsx
 import React from 'react';
 import { useAuth } from '../contexts/AuthContext'; 
+import ScraperComponent from './Scraper'
 const Dashboard: React.FC = () => {
   const { currentUser, logout } = useAuth(); 
   const handleLogout = async () => {
@@ -16,6 +17,8 @@ const Dashboard: React.FC = () => {
   return (
     <div style={{ padding: '20px', textAlign: 'center' }}>
       <h1>Dashboard</h1>
+
+      <ScraperComponent/>
       {currentUser ? (
         <>
           <p>Welcome, {currentUser.first_name}  {currentUser.last_name}</p>
