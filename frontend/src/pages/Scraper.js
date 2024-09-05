@@ -23,7 +23,7 @@ const ScraperComponent = () => {
     return (
         <div>
             <button onClick={scrapePricesAndRooms} disabled={loading}>
-                {loading ? 'Loading...' : 'Scrape Data'}
+                {loading ? 'Loading..' : 'Scrape Data'}
             </button>
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <pre>{result}</pre>
