@@ -1,13 +1,20 @@
 // src/pages/Dashboard.tsx
 import React from 'react';
-import { useAuth } from '../contexts/AuthContext'; 
+import { useAuth } from '../contexts/AuthContext';
+import StudentAccommodation from './StudentAccommodation';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
+import Filter from './Filter';
+
 const Dashboard: React.FC = () => {
-  const { currentUser, logout } = useAuth(); 
+  const { currentUser, logout } = useAuth();
+  const navigate = useNavigate();
+
   const handleLogout = async () => {
     try {
       await logout();
-      // After logout delete the token from local storage and redirect to the sign-in page
-    
+      window.localStorage.removeItem('authToken'); // Adjust the key as needed
+      navigate('/signin'); // Redirect to the sign-in page
     } catch (error) {
       console.error("Logout failed", error);
     }
@@ -15,15 +22,13 @@ const Dashboard: React.FC = () => {
 
   return (
     <div style={{ padding: '20px', textAlign: 'center' }}>
-      <h1>Dashboard</h1>
-      {currentUser ? (
-        <>
-          <p>Welcome, {currentUser.first_name}  {currentUser.last_name}</p>
-          <button onClick={handleLogout} style={{ marginTop: '20px' }}>Logout</button>
-        </>
-      ) : (
-        <p>You need to sign in to access the dashboard.</p>
-      )}
+      <Button onClick={() => navigate('/Filter')} variant="contained" color="primary" style={{ margin: '10px' }}>
+        Filter
+      </Button>
+      <Button onClick={handleLogout} variant="contained" color="secondary" style={{ margin: '10px' }}>
+        Logout
+      </Button>
+      <StudentAccommodation />
     </div>
   );
 };

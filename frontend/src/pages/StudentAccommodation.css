@@ -1,0 +1,252 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(255, 255, 255); /* Soft blue background */
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.5s ease-in-out;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgb(255, 255, 255); /* White container background */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  input, button {
+    padding: 12px;
+    margin-right: 10px;
+    border: 2px solid #1e90ff; /* Blue border */
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  button {
+    background-color: #1e90ff; /* Blue button */
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  button:hover {
+    background-color: #104e8b; /* Darker blue on hover */
+    transform: scale(1.05);
+  }
+  
+  #map {
+    margin-top: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px white;
+    animation: slideIn 1s ease;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  h2 {
+    color: #1e90ff; /* Blue heading */
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  ol {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    background-color: whitesmoke;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.8s ease;
+  }
+  
+  li strong {
+    font-size: 20px;
+    color: #1e90ff;
+  }
+  
+  li p {
+    color: #333;
+    margin: 5px 0;
+  }
+  
+  img {
+    border-radius: 8px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease; /* Smooth transition effect */
+  }
+  
+  
+  .error-message {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .search-input-container {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+  
+  .search-input-container input {
+    flex-grow: 1;
+    max-width: 400px;
+    border: 2px solid #1e90ff; /* Blue border for input */
+    transition: border-color 0.3s;
+  }
+  
+  .search-input-container input:focus {
+    border-color: #104e8b; /* Darker blue on focus */
+  }
+  
+  .search-input-container button {
+    flex-grow: 0;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .search-input-container button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .welcome-message {
+    font-size: 32px;
+    font-weight: bold;
+    color: #007BFF; /* Blue color */
+    text-align: center;
+    margin-top: 20px;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 2s ease-in forwards, moveUp 2s ease-in-out; /* Fade in and move up animation */
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes moveUp {
+    0% {
+      transform: translateY(20px); /* Starts slightly below */
+    }
+    100% {
+      transform: translateY(0); /* Ends at original position */
+    }
+  }
+  /* Style for ordered list (ol) */
+ol {
+  list-style-type: none; /* Remove default list style */
+  padding: 0;
+  margin: 20px 0;
+}
+
+/* Style for each list item (li) */
+li {
+  background-color: whitesmoke; /* Light background color for each item */
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  animation: fadeInUp 0.8s ease; /* Animation for each item to fade in and move up */
+  transition: transform 0.3s ease; /* Smooth transform effect for hover */
+}
+
+li:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
+}
+
+/* Style for the strong text (index and name of accommodation) */
+li strong {
+  font-size: 20px; /* Larger font size */
+  color: #1e90ff; /* Blue color for emphasis */
+  display: block; /* Display as block for separation */
+  margin-bottom: 10px;
+}
+
+/* Style for paragraphs (p) within each list item */
+li p {
+  color: #333; /* Darker color for text */
+  margin: 5px 0; /* Spacing between paragraphs */
+  font-size: 16px; /* Standard font size */
+}
+
+/* Style for the URL text */
+li p:nth-child(4) {
+  color: #1e90ff; /* Blue color for URL */
+  text-decoration: underline; /* Underline for URL to indicate it's a link */
+  cursor: pointer; /* Pointer cursor for links */
+}
+
+/* Style for images (img) within each list item */
+li img {
+  border-radius: 8px; /* Rounded corners for images */
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 100px; /* Set width */
+  height: 100px; /* Set height */
+  transition: transform 0.3s ease; /* Smooth transform effect */
+}
+
+li img:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Animation keyframes for fade-in effect */
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}

@@ -6,6 +6,8 @@ import SignIn from './pages/SignIn';
 import Dashboard from './pages/dashboard'; 
 import ForgotPassword from './pages/ForgotPass';
 import SignUp from './pages/SignUp';
+import Filter from './pages/Filter';
+//import { Filter } from '@mui/icons-material';
 
 // ProtectedRoute component defined within App.tsx
 const ProtectedRoute: React.FC = () => {
@@ -29,6 +31,7 @@ const App: React.FC = () => {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/Filter" element={<Filter />}/>
 
           
           {/* Protected Routes */}

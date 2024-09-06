@@ -5,6 +5,7 @@
 		"@mui/icons-material": "^6.0.2",
 		"@mui/material": "^6.0.2",
 		"@types/react-router-dom": "^5.3.3",
+		"firebase": "^10.13.1",
 		"react-router-dom": "^6.26.1"
 	}
 }
